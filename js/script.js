@@ -2,6 +2,7 @@ const gameSequence = [];
 const clickedSequence = [];
 let round = 0;
 let score = 0;
+let timing = 0;
 
 function homepage() {
     startGame.addEventListener('click', game);
@@ -20,6 +21,7 @@ function changeStartToReset() {
         window.location.reload();
     });
     startGame.innerText = 'Reiniciar';
+    contadorJogadas.innerText = '0';
 }
 
 function changeText() {
@@ -35,9 +37,13 @@ function startNewRound() {
             value.className = 'ativado';
             setTimeout(() => {
                 value.className = 'desativado';
-            }, 500);
-        }, 1000 * (index + 1));
+            }, 300);
+        }, 700 * (index + 1));
+        timing = 700*(index+1);
     });
+    setTimeout(() => {
+        jogadas.innerText = 'SUA VEZ!'
+    }, timing+500);
 }
 
 function waitForClicks() {
@@ -67,7 +73,25 @@ function checkClicks() {
 }
 
 function endGame() {
-    menuTexto.innerText = 'Fim de jogo!';
+    boasVindas.innerText = 'Fim de jogo!';
+    jogadas.innerText = `Clique no botão para reiniciar`;
+    
+    setInterval(() => {
+        buttons.forEach(elem => {
+                elem.className = 'fimDeJogo';
+                setTimeout(() => {
+                    elem.className = 'desativado';
+                }, 500);
+        })
+    }, 800);
+
+    setInterval(() => {
+        startGame.innerText = 'Reiniciar';
+        setTimeout(() => {
+            startGame.innerText = '';
+        }, 500);
+    }, 800);
+
 }
 
 function nextRound() {

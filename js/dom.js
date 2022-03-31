@@ -28,13 +28,8 @@ const containerJogadas = document.createElement('div');
 const labelJogadas = document.createElement('label');
 labelJogadas.innerText = 'Acertos'
 const contadorJogadas = document.createElement('div');
-contadorJogadas.innerText = '0'
-//--------------------------------------------------------
-const containerRecords = document.createElement('div');
-const labelRecords = document.createElement('label');
-labelRecords.innerText = 'Record';
-const contadorRecords = document.createElement('div');
-contadorRecords.innerText = '0'
+contadorJogadas.innerText = '--'
+
 //--------------------------------------------------------
 const containerBtn = document.createElement('div');
 const startGame = document.createElement('button')
@@ -44,8 +39,7 @@ painelMenu.classList.add('painel-menu');
 containerJogadas.classList.add('container-jogadas');
 contadorJogadas.classList.add('jogadas');
 //--------------------------------------------------------
-containerRecords.classList.add('container-records');
-contadorRecords.classList.add('records');
+
 containerBtn.classList.add('container-btn');
 //--------------------------------------------------------
 startGame.classList.add('btn-start');
@@ -100,7 +94,6 @@ menuGame.appendChild(painelMenu);
 painelMenu.appendChild(containerJogadas)
 containerJogadas.appendChild(labelJogadas);
 containerJogadas.appendChild(contadorJogadas);
-painelMenu.appendChild(containerRecords);
+
 painelMenu.appendChild(containerBtn)
 containerBtn.appendChild(startGame);
-
